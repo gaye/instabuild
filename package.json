@@ -1,0 +1,11 @@
+{
+  "name": "instabuild",
+  "description": "Autoreloads HTML files and their dependencies when they're changed",
+  "version": "0.0.1",
+  "author": "Gareth Aye <gareth.aye@gmail.com>",
+  "dependencies": {
+    "cheerio": "0.10.x",
+    "mime": "1.x",
+    "socket.io": "0.9.x"
+  }
+}
