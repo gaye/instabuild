@@ -1,7 +1,7 @@
 {
   "name": "instabuild",
   "description": "Autoreloads HTML files and their dependencies when they're changed",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Gareth Aye <gareth.aye@gmail.com>",
   "dependencies": {
     "cheerio": "0.10.x",
@@ -10,5 +10,6 @@
     "mocha": "1.8.x",
     "should": "1.2.x",
     "socket.io": "0.9.x"
-  }
+  },
+  "bin": { "instabuild": "./server.js" }
 }
