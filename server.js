@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-var ConfigParser = require('./lib/configparser')
-  , FSReporter = require('./lib/fsreporter')
+var ConfigParser = require('./lib/fs/configparser')
+  , FSReporter = require('./lib/fs/fsreporter')
   , fs = require('fs')
-  , localserver = require('./lib/localserver')
+  , localserver = require('./lib/localserver/localserver')
   , path = require('path');
 
 
