@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var ConfigParser = require('./lib/fs/configparser')
+var ConfigParser = require('./lib/config/configparser')
   , FSReporter = require('./lib/fs/fsreporter')
   , fs = require('fs')
   , localserver = require('./lib/localserver/localserver')
