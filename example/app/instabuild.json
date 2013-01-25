@@ -1,3 +1,6 @@
 {
-  "htmldir": "./public"
+  "publicDir": "./public",
+  "watchList": [
+    "./public"
+  ]
 }

@@ -1,20 +1,26 @@
 #!/usr/bin/env node
 
-var FSReporter = require('./lib/fsreporter')
-  , localserver = require('./lib/localserver');
+var ConfigParser = require('./lib/configparser')
+  , FSReporter = require('./lib/fsreporter')
+  , fs = require('fs')
+  , localserver = require('./lib/localserver')
+  , path = require('path');
 
 
 
-// TODO(gareth): Read these from config
-var paths = [
-    '/Users/django/instabuild/example/app/public/index.html',
-    '/Users/django/instabuild/example/app/public/javascripts/app.js',
-    '/Users/django/instabuild/example/app/public/stylesheets/style.css'];
-var staticPath = '/Users/django/instabuild/example/app/public';
-var port = 3000;
+var PORT = 3000;
 
+// Resolve the config file
+var filename = path.resolve(process.cwd(), process.argv[2]);
+if (!fs.existsSync(filename)) {
+  console.log('Usage: instabuild <config file>');
+  process.exit(1);
+}
+
+var parser = new ConfigParser();
+var config = parser.parse(filename);
 var reporter = new FSReporter();
-reporter.listen(paths);
+reporter.listen(config.watchList);
 
-localserver.start(port, staticPath, reporter);
-console.log('Instabuild server serving ' + staticPath + ' on ' + port + '...');
+localserver.start(PORT, config.publicDir, reporter);
+console.log('Instabuild server serving ' + config.publicDir + ' on ' + PORT + '...');
