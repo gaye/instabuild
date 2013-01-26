@@ -2,7 +2,7 @@
 
 var ConfigParser = require('./lib/configparser')
   , FSReporter = require('./lib/fsreporter')
-  , Logger = require('./lib/logger')
+  , LOG = require('./lib/logger')
   , fs = require('fs')
   , localserver = require('./lib/localserver/localserver')
   , path = require('path');
@@ -10,15 +10,16 @@ var ConfigParser = require('./lib/configparser')
 
 
 var PORT = 3000;
-var LOGGER = new Logger({
-  colors: true,
-  level: 2
-});
 
 // Resolve the config file
-var filename = path.resolve(process.cwd(), process.argv[2]);
-if (!fs.existsSync(filename)) {
-  console.log('Usage: instabuild <config file>');
+var filename = null;
+try {
+  filename = path.resolve(process.cwd(), process.argv[2]);
+  if (!fs.existsSync(filename)) {
+    throw 'No such file ' + filename;
+  }
+} catch (e) {
+  LOG.error('Usage: instabuild <config file>');
   process.exit(1);
 }
 
@@ -27,5 +28,5 @@ var config = parser.parse(filename);
 var reporter = new FSReporter();
 reporter.listen(config.watchList);
 
-localserver.start(PORT, config.publicDir, reporter, LOGGER);
-LOGGER.info('Instabuild server listening on port ' + PORT + '...');
+localserver.start(PORT, config.publicDir, reporter);
+LOG.info('Instabuild server listening on port ' + PORT + '...');
