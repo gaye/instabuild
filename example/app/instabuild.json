@@ -1,5 +1,9 @@
 {
+  "name": "example",
   "publicDir": "./public",
+  "update": [
+    "local"
+  ],
   "watchList": [
     "./public"
   ]
