@@ -4,7 +4,7 @@
 ## Getting Started
 
 To get a feel for what this is all about (and once you've installed the  
-[dependencies](#Dependencies)) do  
+[dependencies](#dependencies)) do  
 
     git clone git@github.com/gaye/instabuild.git
     npm install -g instabuild
