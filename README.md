@@ -21,8 +21,8 @@ to the HTML, javascript, and css files while observing your browser.
 
 ### Running the test suite
 
-`npm install -g mocha`
-`tools/test.sh`
+    npm install -g mocha
+    tools/test.sh
 
 ### TODO
 
