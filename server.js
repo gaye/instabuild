@@ -4,7 +4,7 @@ var ConfigParser = require('./lib/configparser')
   , FSReporter = require('./lib/fsreporter')
   , LOG = require('./lib/logger')
   , fs = require('fs')
-  , localserver = require('./lib/localserver/localserver')
+  , localserver = require('./lib/instaserver')
   , path = require('path');
 
 

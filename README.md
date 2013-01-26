@@ -17,3 +17,12 @@ to the HTML, javascript, and css files while observing your browser.
 ### Running the test suite
 
 `tools/test.sh`
+
+### TODO
+
++ Add options to `instabuild.json` to allow users to configure what the  
+instaserver does when it gets a `change` event from `FSReporter`.
++ Add build and deploy options
++ Add support for languages whose compile targets are HTML, css, and javascript
++ Add support for watching dependencies of files specified in `watchList`
++ Build commandline tool for users to deploy their instabuild apps to the cloud
