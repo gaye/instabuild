@@ -3,7 +3,8 @@
 
 ## Getting Started
 
-To get a feel for what this is all about, do  
+To get a feel for what this is all about (and once you've installed the  
+[dependencies](#Dependencies)) do  
 
     git clone git@github.com/gaye/instabuild.git
     npm install -g instabuild
@@ -12,10 +13,15 @@ To get a feel for what this is all about, do
 Then open example/ in your text editor and try making some changes  
 to the HTML, javascript, and css files while observing your browser.
 
+### Dependencies
+
++ Node 0.8.x
+
 ## Contributing
 
 ### Running the test suite
 
+`npm install -g mocha`
 `tools/test.sh`
 
 ### TODO
@@ -25,4 +31,4 @@ instaserver does when it gets a `change` event from `FSReporter`.
 + Add build and deploy options
 + Add support for languages whose compile targets are HTML, css, and javascript
 + Add support for watching dependencies of files specified in `watchList`
-+ Build commandline tool for users to deploy their instabuild apps to the cloud
++ Extend commandline tool with build and deploy options
