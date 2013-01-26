@@ -9,11 +9,14 @@ var ConfigParser = require('./lib/configparser')
 
 
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 // Resolve the config file
 var filename = null;
 try {
+  if (!process.argv[2]) {
+    throw 'No config file provided';
+  }
   filename = path.resolve(process.cwd(), process.argv[2]);
   if (!fs.existsSync(filename)) {
     throw 'No such file ' + filename;
