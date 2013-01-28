@@ -31,5 +31,5 @@ var config = parser.parse(filename);
 var reporter = new FSReporter();
 reporter.listen(config.watchList);
 
-localserver.start(PORT, config.publicDir, reporter);
+localserver.start(config.name, PORT, config.publicDir, reporter);
 LOG.info('Instabuild server listening on port ' + PORT + '...');
