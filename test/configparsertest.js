@@ -10,10 +10,10 @@ describe('ConfigParser', function() {
   describe('#parse', function() {
     it('should properly parse the example config file', function() {
       var filename =
-          path.resolve(process.cwd(), 'example/app/instabuild.json');
+          path.resolve(process.cwd(), 'example/instabuild.json');
       var config = parser.parse(filename);
       config.should.have.property('publicDir',
-          path.resolve(process.cwd(), 'example/app/public'));
+          path.resolve(process.cwd(), 'example/public'));
       config.should.have.property('watchList').with.lengthOf(5);
     });
   });

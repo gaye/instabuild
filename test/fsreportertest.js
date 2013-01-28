@@ -11,7 +11,7 @@ describe('FSReporter', function() {
   describe('#listen', function() {
     it('should emit change when a watched file changes', function(done) {
       // Copy the file to a temporary location
-      var index = path.resolve(process.cwd(), 'example/app/public/index.html');
+      var index = path.resolve(process.cwd(), 'example/public/index.html');
       var tmp = index.replace('index.html', 'tmp.html');
       var cmd = 'cp ' + index + ' ' + tmp;
       exec(cmd, function(err, stdout, stderr) {
