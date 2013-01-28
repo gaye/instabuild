@@ -26,9 +26,6 @@ to the HTML, javascript, and css files while observing your browser.
 
 ### TODO
 
-+ Add options to `instabuild.json` to allow users to configure what the  
-instaserver does when it gets a `change` event from `FSReporter`.
-+ Add build and deploy options
 + Add support for languages whose compile targets are HTML, css, and javascript
 + Add support for watching dependencies of files specified in `watchList`
-+ Extend commandline tool with build and deploy options
++ Extend commandline tool with build options

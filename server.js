@@ -28,6 +28,13 @@ try {
 
 var parser = new ConfigParser();
 var config = parser.parse(filename);
+
+// If we're going to sync with remote, write a password file
+// TODO(gareth): This is a hack. Think more on rsync + permissions.
+var pwfile = path.resolve(config.publicDir, '.password');
+fs.writeFileSync(pwfile, 'password', 'utf-8');
+fs.chmodSync(pwfile, '600');
+
 var reporter = new FSReporter();
 reporter.listen(config.watchList);
 
