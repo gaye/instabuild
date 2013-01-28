@@ -2,7 +2,8 @@
   "name": "example",
   "publicDir": "./public",
   "update": [
-    "local"
+    "local",
+    "remote"
   ],
   "watchList": [
     "./public"
