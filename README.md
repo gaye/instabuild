@@ -32,9 +32,3 @@ when you make changes and deploys the new code to the remote server :)
 
     npm install -g mocha
     tools/test.sh
-
-### TODO
-
-+ Add support for languages whose compile targets are HTML, css, and javascript
-+ Add support for watching dependencies of files specified in `watchList`
-+ Extend commandline tool with build options
