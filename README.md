@@ -6,8 +6,9 @@
 To get a feel for what this is all about (and once you've installed the  
 [dependencies](#dependencies)) do  
 
-    git clone git@github.com/gaye/instabuild.git
     npm install -g instabuild
+    git clone git@github.com/gaye/instabuild.git
+    cd instabuild
     instabuild example/instabuild.json
 
 Then open  
