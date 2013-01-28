@@ -8,14 +8,17 @@ To get a feel for what this is all about (and once you've installed the
 
     git clone git@github.com/gaye/instabuild.git
     npm install -g instabuild
-    instabuild example/instabuild.json  # Open localhost:3000 in your browser
+    instabuild example/instabuild.json
 
 Then open example/ in your text editor and try making some changes  
-to the HTML, javascript, and css files while observing your browser.
+to the HTML, javascript, and css files while observing your browser.  
+Also note that your changes are auto-deployed to  
+`config["name"].instabuild.org` :).
 
 ### Dependencies
 
 + Node 0.8.x
++ rsync
 
 ## Contributing
 
