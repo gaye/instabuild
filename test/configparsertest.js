@@ -12,9 +12,15 @@ describe('ConfigParser', function() {
       var filename =
           path.resolve(process.cwd(), 'example/instabuild.json');
       var config = parser.parse(filename);
-      config.should.have.property('publicDir',
-          path.resolve(process.cwd(), 'example/public'));
-      config.should.have.property('watchList').with.lengthOf(5);
+      var publicDir = path.resolve(process.cwd(), 'example/public');
+      config.should.have.property('publicDir', publicDir);
+      config.should.have.property('watchList');
+      config.watchList.should.includeEql(
+          path.resolve(publicDir, 'index.html'));
+      config.watchList.should.includeEql(
+          path.resolve(publicDir, 'javascripts/app.js'));
+      config.watchList.should.includeEql(
+          path.resolve(publicDir, 'stylesheets/style.css'));
     });
   });
 });
