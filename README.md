@@ -19,7 +19,7 @@ Then open
 
 and make some changes to the HTML, javascript, and css. You'll notice  
 that instabuild automatically refreshes the page on the local server  
-when you make changes and deploys the new code to the remote server :)
+and deploys the new code to the remote server when you make changes :)
 
 ### Dependencies
 
