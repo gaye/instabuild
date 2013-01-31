@@ -35,25 +35,6 @@ InstaBuild.prototype.printServeUsage = function() {
 };
 
 
-/**
- * @return {string} directory path for this file.
- * @private
- */
-InstaBuild.prototype.filenameToDirectory_ = function(filename) {
-  if (filename.indexOf('/') == -1 || filename.substring(0, 2) == './') {
-    return '.';
-  }
-
-  var split = filename.split('/');
-  split = split.slice(0, split.length - 1);
-  if (split.length == 1) {
-    return '/';
-  }
-
-  return split.join('/');
-};
-
-
 
 if (require.main === module) {
   var instabuild = new InstaBuild();
@@ -70,10 +51,10 @@ if (require.main === module) {
       }
 
       // Make the app directory
-      fs.mkdirSync(path.resolve(__dirname, name));
+      fs.mkdirSync(path.resolve(process.cwd(), name));
 
       // Write instabuild.json
-      fs.writeFile(path.resolve(__dirname, name + '/instabuild.json'),
+      fs.writeFile(path.resolve(process.cwd(), name + '/instabuild.json'),
           JSON.stringify({
             "name": name,
             "publicDir": "./public",
@@ -82,20 +63,19 @@ if (require.main === module) {
           }, null, 2) + '\n');
 
       // mkdir public
-      var publicPath = path.resolve(__dirname, name + '/public');
+      var publicPath = path.resolve(process.cwd(), name + '/public');
       fs.mkdirSync(publicPath);
       var stylesheetsPath =
-          path.resolve(__dirname, name + '/public/stylesheets');
+          path.resolve(process.cwd(), name + '/public/stylesheets');
       fs.mkdirSync(stylesheetsPath);
       var javascriptsPath =
-          path.resolve(__dirname, name + '/public/javascripts');
+          path.resolve(process.cwd(), name + '/public/javascripts');
       fs.mkdirSync(javascriptsPath);
 
       // Copy over default files
-      var dir = instabuild.filenameToDirectory_(__filename);
-      var index = path.resolve(dir, 'default/index.html');
-      var style = path.resolve(dir, 'default/stylesheets/style.css');
-      var app = path.resolve(dir, 'default/javascripts/app.js');
+      var index = path.resolve(process.cwd(), 'default/index.html');
+      var style = path.resolve(process.cwd(), 'default/stylesheets/style.css');
+      var app = path.resolve(process.cwd(), 'default/javascripts/app.js');
 
       exec('cp ' + index + ' ' + publicPath, function(err, stdout, stderr) {
         // TODO(gareth)
