@@ -69,7 +69,8 @@ if (require.main === module) {
         instabuild.printCreateUsage();
       }
 
-      fs.mkdirSync(name);
+      // Make the app directory
+      fs.mkdirSync(path.resolve(__dirname, name));
 
       // Write instabuild.json
       fs.writeFile(path.resolve(__dirname, name + '/instabuild.json'),
