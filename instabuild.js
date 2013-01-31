@@ -35,6 +35,25 @@ InstaBuild.prototype.printServeUsage = function() {
 };
 
 
+/**
+ * @return {string} directory path for this file.
+ * @private
+ */
+InstaBuild.prototype.filenameToDirectory_ = function(filename) {
+  if (filename.indexOf('/') == -1 || filename.substring(0, 2) == './') {
+    return '.';
+  }
+
+  var split = filename.split('/');
+  split = split.slice(0, split.length - 1);
+  if (split.length == 1) {
+    return '/';
+  }
+
+  return split.join('/');
+};
+
+
 
 if (require.main === module) {
   var instabuild = new InstaBuild();
@@ -73,9 +92,10 @@ if (require.main === module) {
       fs.mkdirSync(javascriptsPath);
 
       // Copy over default files
-      var index = path.resolve(process.cwd(), 'default/index.html');
-      var style = path.resolve(process.cwd(), 'default/stylesheets/style.css');
-      var app = path.resolve(process.cwd(), 'default/javascripts/app.js');
+      var dir = instabuild.filenameToDirectory_(__filename);
+      var index = path.resolve(dir, 'default/index.html');
+      var style = path.resolve(dir, 'default/stylesheets/style.css');
+      var app = path.resolve(dir, 'default/javascripts/app.js');
 
       exec('cp ' + index + ' ' + publicPath, function(err, stdout, stderr) {
         // TODO(gareth)
