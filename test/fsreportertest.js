@@ -35,7 +35,7 @@ describe('FSReporter', function() {
     });
   });
 
-  describe('#unlisten', function() {
+  describe.skip('#unlisten', function() {
     // TODO(gareth)
   });
 });
