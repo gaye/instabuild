@@ -41,6 +41,7 @@ InstaBuild.prototype.create = function(name) {
   // mkdir public
   var publicPath = path.resolve(process.cwd(), name + '/public');
   fs.mkdirSync(publicPath);
+  LOG.info('create ' + name + '/public');
   var stylesheetsPath =
       path.resolve(process.cwd(), name + '/public/stylesheets');
   fs.mkdirSync(stylesheetsPath);

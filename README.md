@@ -6,7 +6,7 @@
 To get a feel for what this is all about (and once you've installed the  
 [dependencies](#dependencies)) do  
 
-    npm install -g instabuild@0.3.4
+    npm install -g instabuild@0.3.5
     instabuild create hello
     cd hello
     instabuild serve instabuild.json
