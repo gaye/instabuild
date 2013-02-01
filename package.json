@@ -1,7 +1,7 @@
 {
   "name": "instabuild",
   "description": "Autoreloads HTML files and their dependencies when they're changed",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "author": "Gareth Aye <gareth.aye@gmail.com>",
   "dependencies": {
     "cheerio": "0.10.x",
